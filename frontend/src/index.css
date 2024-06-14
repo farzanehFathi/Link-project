@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/src/fonts/Inter-VariableFont_slnt\,wght.ttf) format("ttf");
+  }
+}
+
+@layer components {
+  .hover-effect {
+    @apply hover:opacity-50;
+  }
+
+  .span-y-translate {
+    @apply inline-block font-Inter group-hover:translate-y-2 transform transition-transform duration-300;
+  }
+
+  .span-x-translate {
+    @apply inline-block font-Inter group-hover:translate-x-2 transform transition-transform duration-300;
+  }
+  .active {
+    @apply opacity-50;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Titillium Web";
+}
