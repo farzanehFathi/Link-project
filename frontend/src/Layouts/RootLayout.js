@@ -8,7 +8,7 @@ const RootLayout = () => {
   return (
     <div className="rootLayout">
       <Header />
-      <div className="pt-70px"></div>
+      <div className="pt-16"></div>
       <main>
         <Outlet />
       </main>
