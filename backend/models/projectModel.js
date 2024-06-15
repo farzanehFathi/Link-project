@@ -5,7 +5,14 @@ const projectSchema = new Schema(
   {
     title: { type: String, required: true },
     location: { type: String, required: true },
+    client: { type: String, required: true },
+    status: { type: String, required: true },
+    grossArea: { type: String, required: true },
+    photo: { type: String, required: true },
+    services: { type: String, required: true },
+    sectors: { type: String, required: true },
     description: { type: String, required: true },
+    photo: { type: Image, required: true },
   },
   { timestamps: true }
 );

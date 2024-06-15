@@ -8,6 +8,7 @@ import {
 //Pages
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Projects from "./pages/Projects";
 
 // layouts
 import RootLayout from "./Layouts/RootLayout";
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
+      <Route path="projects" element={<Projects />} />
     </Route>
   )
 );

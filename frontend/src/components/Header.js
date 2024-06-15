@@ -27,7 +27,7 @@ const Heaader = () => {
 
           <div className="lg:hidden flex gap-4 content-end items-start text-lg">
             <div>
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <i className="fa-solid fa-magnifying-glass"></i>
             </div>
             <div
               className={`-translate-y-2 scale-[0.7] z-3000 ${
@@ -41,7 +41,10 @@ const Heaader = () => {
           {isOpen ? (
             <div className="bg-branding4 fixed top-16 bottom-0 right-0 left-0 ">
               <div className=" relevant w-11/12 max-w-1800px mx-auto">
-                <Link to="#" className="text-5xl mt-6 block hover-effect">
+                <Link
+                  to="/projects"
+                  className="text-5xl mt-6 block hover-effect"
+                >
                   Projects
                 </Link>
                 <Link to="#" className="text-5xl  block hover-effect">
@@ -89,7 +92,7 @@ const Heaader = () => {
             </ul>
             <div className="flex gap-4 content-end items-center text-lg">
               <div>
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass"></i>
               </div>
 
               <div>EN</div>

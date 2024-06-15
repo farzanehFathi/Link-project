@@ -19,10 +19,6 @@ app.use(express.json());
 app.use("/", express.static(path.join(__dirname, "..", "frontend", "build")));
 
 //routes
-app.get("/", (req, res) => {
-  res.json({ mssg: "welcome to the app" });
-});
-
 app.use("/api/projects", projectRoutes);
 
 // connect to mongoDB & listen for requests
