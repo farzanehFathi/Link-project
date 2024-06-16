@@ -2,8 +2,11 @@ import { useState } from "react";
 
 const FormField = ({ fieldLabel, field, setField }) => {
   return (
-    <div className="flex justify-between items-center w-4/12">
-      <label htmlFor={field}> {fieldLabel}</label>
+    <div className="flex justify-between w-4/12 mb-3 items-baseline">
+      <label className="text-lg" htmlFor={field}>
+        {" "}
+        {fieldLabel}
+      </label>
       <input
         className="border-b border-gray-500 w-80 outline-none"
         type="text"
@@ -21,6 +24,7 @@ const ProjectsForm = () => {
   const [client, setClient] = useState("");
   const [status, setStatus] = useState("");
   const [grossArea, setGrossArea] = useState("");
+  const [photo, setPhoto] = useState("");
   const [services, setServices] = useState("");
   const [sectors, setSectors] = useState("");
 
@@ -34,6 +38,7 @@ const ProjectsForm = () => {
       client,
       status,
       grossArea,
+      photo,
       services,
       sectors,
       description,
@@ -58,6 +63,7 @@ const ProjectsForm = () => {
       setClient("");
       setGrossArea("");
       setStatus("");
+      setPhoto("");
       setSectors("");
       setServices("");
       setError(null);
@@ -68,7 +74,8 @@ const ProjectsForm = () => {
   return (
     <div className="w-11/12 max-w-1800px mx-auto">
       <form action="" method="POST" onSubmit={handleSubmit}>
-        <h3 className="text-3xl">Add a new project</h3>
+        <h3 className="text-3xl mb-6">Add a new project</h3>
+
         <FormField
           fieldLabel={"Project Title"}
           field={title}
@@ -91,6 +98,8 @@ const ProjectsForm = () => {
           setField={setGrossArea}
         />
 
+        <FormField fieldLabel={"Photo"} field={photo} setField={setPhoto} />
+
         <FormField
           fieldLabel={"Services"}
           field={services}
@@ -103,13 +112,25 @@ const ProjectsForm = () => {
           setField={setSectors}
         />
 
-        <FormField
-          fieldLabel={"Description"}
-          field={description}
-          setField={setDescription}
-        />
+        <div className="w-4/12">
+          <label className="block text-lg" htmlFor={description}>
+            {" "}
+            Description
+          </label>
+          <textarea
+            className="w-full border-b border-gray-500 outline-none h-16"
+            type="text"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+          />
+        </div>
 
-        <button type="submit">Add Project</button>
+        <button
+          type="submit"
+          className="w-4/12 bg-branding4 text-white text-lg hover:bg-red-800"
+        >
+          Add Project
+        </button>
         {error && <div>{error}</div>}
       </form>
     </div>

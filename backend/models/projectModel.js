@@ -8,6 +8,7 @@ const projectSchema = new Schema(
     client: { type: String, required: true },
     status: { type: String, required: true },
     grossArea: { type: String, required: true },
+    photo: { type: String, required: true },
     services: { type: String, required: true },
     sectors: { type: String, required: true },
     description: { type: String, required: true },
