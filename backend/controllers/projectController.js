@@ -26,10 +26,28 @@ const getProject = async (req, res) => {
 
 // create new project
 const createProject = async (req, res) => {
-  const { title, location, description } = req.body;
+  const {
+    title,
+    location,
+    client,
+    status,
+    grossArea,
+    services,
+    sectors,
+    description,
+  } = req.body;
 
   try {
-    const project = await Project.create({ title, location, description });
+    const project = await Project.create({
+      title,
+      location,
+      client,
+      status,
+      grossArea,
+      services,
+      sectors,
+      description,
+    });
     res.status(200).json(project);
   } catch (err) {
     res.status(400).json({ err: err.message });

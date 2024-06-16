@@ -1,14 +1,43 @@
 import { useState } from "react";
 
+const FormField = ({ fieldLabel, field, setField }) => {
+  return (
+    <div className="flex justify-between items-center w-4/12">
+      <label htmlFor={field}> {fieldLabel}</label>
+      <input
+        className="border-b border-gray-500 w-80 outline-none"
+        type="text"
+        onChange={(e) => setField(e.target.value)}
+        value={field}
+      />
+    </div>
+  );
+};
+
 const ProjectsForm = () => {
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+  const [client, setClient] = useState("");
+  const [status, setStatus] = useState("");
+  const [grossArea, setGrossArea] = useState("");
+  const [services, setServices] = useState("");
+  const [sectors, setSectors] = useState("");
+
   const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const project = { title, location, description };
+    const project = {
+      title,
+      location,
+      client,
+      status,
+      grossArea,
+      services,
+      sectors,
+      description,
+    };
 
     const response = await fetch("/api/projects", {
       method: "POST",
@@ -26,37 +55,64 @@ const ProjectsForm = () => {
       setTitle("");
       setLocation("");
       setDescription("");
+      setClient("");
+      setGrossArea("");
+      setStatus("");
+      setSectors("");
+      setServices("");
       setError(null);
       console.log("new project added");
     }
   };
 
   return (
-    <form action="" onSubmit={handleSubmit}>
-      <h3>Add a new project</h3>
-      <label htmlFor="title">Prjoect title</label>
-      <input
-        type="text"
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
-      />
+    <div className="w-11/12 max-w-1800px mx-auto">
+      <form action="" method="POST" onSubmit={handleSubmit}>
+        <h3 className="text-3xl">Add a new project</h3>
+        <FormField
+          fieldLabel={"Project Title"}
+          field={title}
+          setField={setTitle}
+        />
 
-      <label htmlFor="location">Prjoect location</label>
-      <input
-        type="text"
-        onChange={(e) => setLocation(e.target.value)}
-        value={location}
-      />
+        <FormField
+          fieldLabel={"Location"}
+          field={location}
+          setField={setLocation}
+        />
 
-      <label htmlFor="description">Prjoect description</label>
-      <input
-        type="text"
-        onChange={(e) => setDescription(e.target.value)}
-        value={description}
-      />
-      <button>Add Project</button>
-      {error && <div>{error}</div>}
-    </form>
+        <FormField fieldLabel={"Client"} field={client} setField={setClient} />
+
+        <FormField fieldLabel={"Status"} field={status} setField={setStatus} />
+
+        <FormField
+          fieldLabel={"Gross Area"}
+          field={grossArea}
+          setField={setGrossArea}
+        />
+
+        <FormField
+          fieldLabel={"Services"}
+          field={services}
+          setField={setServices}
+        />
+
+        <FormField
+          fieldLabel={"Sectors"}
+          field={sectors}
+          setField={setSectors}
+        />
+
+        <FormField
+          fieldLabel={"Description"}
+          field={description}
+          setField={setDescription}
+        />
+
+        <button type="submit">Add Project</button>
+        {error && <div>{error}</div>}
+      </form>
+    </div>
   );
 };
 
