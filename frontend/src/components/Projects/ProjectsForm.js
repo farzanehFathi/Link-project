@@ -72,7 +72,7 @@ const ProjectsForm = () => {
   };
 
   return (
-    <div className="w-11/12 max-w-1800px mx-auto">
+    <div>
       <form action="" method="POST" onSubmit={handleSubmit}>
         <h3 className="text-3xl mb-6">Add a new project</h3>
 
@@ -127,7 +127,7 @@ const ProjectsForm = () => {
 
         <button
           type="submit"
-          className="w-4/12 bg-branding4 text-white text-lg hover:bg-red-800"
+          className="w-4/12 bg-branding4 text-white text-lg hover:bg-branding1 transition-colors ease-in-out duration-200"
         >
           Add Project
         </button>

@@ -51,7 +51,7 @@ const ProjectsSection = () => {
                 alt={"Stovnertårnet - Stovner tower"}
                 title={"Stovnertårnet - Stovner tower"}
                 titleMY={titleMY}
-                description={" Norway's most inclusive landscape project"}
+                description={"Norway's most inclusive landscape project"}
               />
             </div>
           </div>
